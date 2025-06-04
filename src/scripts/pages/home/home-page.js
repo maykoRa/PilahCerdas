@@ -4,11 +4,10 @@ export default class HomePage {
     return `
       <section class="first-section">
         <div class="fisrt-content>
-          <h1>Kenali Sampahmu, <span class="highlight">Mulai dari Sekarang!</span></h1>
+          <h1>Kenali Sampahmu, <span class="first-highlight">Mulai dari Sekarang!</span></h1>
           <p>Unggah foto sampah dan temukan jenis serta cara penanganan terbaiknya.<br>Pilah jadi mudah dengan bantuan teknologi!</p>
           <div class="toggle-button">
-            <button class="toggle-btn">Mulai Kenali Sampahmu</button>
-            <div class="toggle-switch"></div>
+            <button class="toggle-btn">Mulai Kenali Sampahmu<i class="fa-solid fa-search"></i></button>
           </div>
         </div>
         <div class="ilustration>
@@ -49,23 +48,23 @@ export default class HomePage {
         <div>
           <ul>
             <li>
-              <span class="icon">♻️</span>
+              <span class="icon"><i class="fa-solid fa-recycle"></i></span>
               Meningkatkan Efisiensi Daur Ulang
             </li>
             <li>
-              <span class="icon">🗑️</span>
+              <span class="icon"><i class="fa-solid fa-trash-can"></i></span>
               Mengurangi Beban Tempat Pembuangan Akhir
             </li>
             <li>
-              <span class="icon">💲</span>
+              <span class="icon"><i class="fa-solid fa-coins"></i></span>
               Mendukung Ekonomi Sirkular
             </li>
             <li>
-              <span class="icon">🌱</span>
+              <span class="icon"><i class="fa-solid fa-leaf"></i></span>
               Mempermudah Pengolahan Sampah Organik
             </li>
             <li>
-              <span class="icon">🏡</span>
+              <span class="icon"><i class="fa-solid fa-house"></i></span>
               Membiasakan Gaya Hidup Ramah Lingkungan
             </li>
           </ul>

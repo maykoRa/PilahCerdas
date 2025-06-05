@@ -6,6 +6,7 @@ const {
   deleteNewsByIdHandler,
   adminLoginHandler,
   uploadImageHandler,
+  getEducationByCategoryHandler,
 } = require("../handler/handler");
 
 const routes = [
@@ -48,9 +49,14 @@ const routes = [
         output: "stream",
         parse: false,
         allow: "multipart/form-data",
-        maxBytes: 5 * 1024 * 1024
+        maxBytes: 5 * 1024 * 1024,
       },
     },
+  },
+  {
+    method: "GET",
+    path: "/education/{category}", 
+    handler: getEducationByCategoryHandler,
   },
 ];
 

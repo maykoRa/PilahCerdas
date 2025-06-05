@@ -4,6 +4,7 @@ const News = require("../models/news");
 const fs = require("fs");
 const path = require("path");
 const { Formidable } = require("formidable");
+const educationContent = require("../data/education");
 
 const ADMIN_USERNAME = "admin";
 const ADMIN_PASSWORD = "admin123";
@@ -239,6 +240,23 @@ const uploadImageHandler = async (request, h) => {
   }
 };
 
+const getEducationByCategoryHandler = (request, h) => {
+  const { category } = request.params;
+
+  if (!educationContent[category]) {
+    throw Boom.notFound("Kategori edukasi tidak ditemukan.");
+  }
+
+  return h
+    .response({
+      status: "success",
+      data: {
+        education: educationContent[category],
+      },
+    })
+    .code(200);
+};
+
 const adminLoginHandler = async (request, h) => {
   const { username, password } = request.payload;
 
@@ -277,4 +295,5 @@ module.exports = {
   deleteNewsByIdHandler,
   adminLoginHandler,
   uploadImageHandler,
+  getEducationByCategoryHandler,
 };

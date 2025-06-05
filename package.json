@@ -16,6 +16,11 @@
   "dependencies": {
     "@hapi/boom": "^10.0.1",
     "@hapi/hapi": "^21.4.0",
-    "nanoid": "^3.3.6"
+    "@hapi/inert": "^7.1.0",
+    "@hapi/subtext": "^8.1.0",
+    "formidable": "^3.5.4",
+    "mysql2": "^3.14.1",
+    "nanoid": "^3.3.6",
+    "sequelize": "^6.37.7"
   }
 }

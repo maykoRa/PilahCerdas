@@ -1,26 +1,64 @@
-const Hapi = require('@hapi/hapi');
-const newsRoutes = require('./routes/news-routes');
+const Hapi = require("@hapi/hapi");
+const Inert = require("@hapi/inert");
+const routes = require("./routes/news-routes");
+const sequelize = require("./config/database");
+const NewsModel = require("./models/news");
 
 const init = async () => {
   const server = Hapi.server({
-    port: 5000,
-    host: 'localhost',
+    port: 9000,
+    host: "localhost",
     routes: {
       cors: {
-        origin: ['*'], 
+        origin: ["*"],
       },
     },
   });
 
-  server.route(newsRoutes);
+  await server.register(Inert);
+
+  server.route({
+    method: "GET",
+    path: "/public/{param*}",
+    handler: {
+      directory: {
+        path: "./public",
+        listing: false,
+        index: false,
+      },
+    },
+  });
+
+  try {
+    await sequelize.sync();
+    console.log("Tabel database disinkronkan dengan MySQL.");
+  } catch (error) {
+    console.error("Gagal sinkronisasi tabel database dengan MySQL:", error);
+    process.exit(1);
+  }
+
+  server.route(routes);
+
+  server.ext("onPreResponse", (request, h) => {
+    const { response } = request;
+    if (response.isBoom) {
+      console.error("--- Hapi.js Error Caught (onPreResponse) ---");
+      console.error("Error Code:", response.output.statusCode);
+      console.error("Error Message:", response.output.payload.message);
+      console.error("Original Error:", response.orig); 
+      console.error("Request Headers:", request.headers);
+      console.error("--- End of Error Log ---");
+    }
+    return h.continue;
+  });
 
   await server.start();
-  console.log(`Server berjalan di ${server.info.uri}`);
+  console.log(`Server berjalan pada ${server.info.uri}`);
 };
 
-process.on('unhandledRejection', (err) => {
-    console.log(err);
-    process.exit(1);
+process.on("unhandledRejection", (err) => {
+  console.log(err);
+  process.exit(1);
 });
 
 init();

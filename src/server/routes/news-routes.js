@@ -5,6 +5,7 @@ const {
   editNewsByIdHandler,
   deleteNewsByIdHandler,
   adminLoginHandler,
+  uploadImageHandler,
 } = require("../handler/handler");
 
 const routes = [
@@ -37,6 +38,19 @@ const routes = [
     method: "DELETE",
     path: "/admin/news/{newsId}",
     handler: deleteNewsByIdHandler,
+  },
+  {
+    method: "POST",
+    path: "/admin/upload/image",
+    handler: uploadImageHandler,
+    options: {
+      payload: {
+        output: "stream",
+        parse: false,
+        allow: "multipart/form-data",
+        maxBytes: 5 * 1024 * 1024
+      },
+    },
   },
 ];
 

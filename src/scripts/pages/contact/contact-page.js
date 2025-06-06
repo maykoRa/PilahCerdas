@@ -1,6 +1,6 @@
-export default class NewsDetailPage{
+export default class ContactPage{
   async render(){
-    console.log("news detail page")
+    console.log('render contact page');
   }
   async afterRender() {
     console.log('afterRender Halaman Utama dipanggil!');

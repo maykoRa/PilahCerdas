@@ -72,4 +72,7 @@ export default class HomePage {
       </section>
     `;
   }
+  async afterRender() {
+    console.log('afterRender Halaman Utama dipanggil!');
+  }
 }

@@ -1,89 +1,85 @@
-export default class HomePage {
+import { generatePopupImage,organicWaste,inorganicWaste } from '../../template.js';
 
+export default class HomePage {
   async render() {
     return `
       <section class="first-section">
-        <div class="fisrt-content">
-          <div id="main-first-content">
-            <h1>Kenali Sampahmu, <span class="first-highlight">Mulai dari Sekarang!</span></h1>
+        <div class="first-content">
+            <h1 id="title-first-section">Kenali Sampahmu, <span class="first-highlight">Mulai dari Sekarang!</span></h1>
             <div id="fisrt-content-text">
-              <p>Unggah foto sampah dan temukan jenis serta cara penanganan terbaiknya.<br>Pilah jadi mudah dengan bantuan teknologi!</p>
-            <div>
-            <div class="toggle-button">
-              <button class="toggle-btn">Mulai Kenali Sampahmu<i class="fa-solid fa-search"></i></button>
+              <p>Unggah foto sampah dan temukan jenis serta cara<br> penanganan terbaiknya.<br>Pilah jadi mudah dengan bantuan teknologi!</p>
             </div>
         </div>
       </section>
 
-      <section class="second-section">
-        <div class="second-content">
-            <h2 class="second-header">Sampah Perlu Dipilah Demi Pengolahan yang Tepat</h2>
-            <p class="intro-text">Memilah sampah sejak awal membantu proses daur ulang, mengurangi pencemaran,dan<br>
-            mendukung pengelolaan lingkungan yang berkelanjutan. <span class="second-highlight">PilahCerdas dapat membantumu</span></p>
+      <section id="second-section">
+        <div class="left-section">
+            <div class="image-wrapper">
+                <img src="images/pile-of-rubbish.png" alt="Tumpukan Sampah">
+            </div>
         </div>
-        <div class="main-card-container">
-          <div class="card-container">
-            <img src="images/pile-of-rubbish.jpg"" alt="gambar tumpukan sampah">
-            <div class="item-content">
-              <h3>Masalah Sampah yang <span class="third-highlight">Terabaikan</span></h3>
-              <p>Kurangnya kebiasaan memilah sampah menyebabkan limbah menumpuk di TPA dan mencemari lingkungan sekitar kita.</p>
-            </div>
-          </div>
-          <div class="card-container">
-            <img src="images/PilahCerdas-tecnology.jpg" alt="tekonologi pilah cerdas">
-            <div class="item-content">
-              <h3>Teknologi untuk Bantu<br><span class="third-highlight">Pilah Sampah</span></h3>
-              <p>Dengan bantuan AI berbasis gambar, <span class="fourth-highlight">PilahCerdas</span> memudahkan siapa pun mengenali jenis sampah dan cara membuangnya.</p>
-          
-            </div>
-          </div>
-          <div class="card-container">
-            <div class="third-item">
-            <img src="images/three-trash-cans.jpg" alt="gambar tiga tempat sampah">
-              <div class="item-content-three">
-                <div class="item-content">
-                  <h3>Kontribusi untuk <span class="third-highlight">Bumi</span></h3>
-                  <p class="third-text-item">setiap gambar yang kamu unggah membantu menciptakan kebiasaan baik, mengurangi penccemaran, dan membangun budaya pilah sampah di indonesia.</p>         
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="right-section">
+            <h2 class="upload-text">UNGGAH</h2>
+            <h2 class="upload-image">GAMBAR SAMPAHMU!</h2>
+            <p class="description">
+                Ingin tahu apakah sampahmu bisa didaur ulang? Upload gambarnya dan biarkan PilahCerdas mengidentifikasinya, lengkap dengan edukasi tentang cara pembuangan yang tepat dan dampak lingkungannya.
+            </p>
+            <button class="upload-button" id="upload-button">
+                PilahCerdas <i class="fa-solid fa-arrow-up-from-bracket"></i>
+            </button>
         </div>
       </section>
 
-      <section class="third-section">
-        <div class="third-content">
-          <h2 class="third-content-header">Sampah Perlu Dipilah<br>Demi Pengelolaan,<br><span class="fifth-highlight">yang Tepat</span></h2>
-          <p class="third-content-text">Memilah sampah sejak awal membantu proses daur ulang, <br>mengurangi pencemaran, dan mendukung pengelolaan<br> lingkungan yang berkelanjutan.</p>
-        </div>
-        <div class="third-content-list">
-          <ul>
-            <li class="list-icon">
-              <span class="icon"><i class="fa-solid fa-recycle"></i></span>
-              Meningkatkan Efisiensi Daur Ulang
-            </li>
-            <li class="list-icon">
-              <span class="icon"><i class="fa-solid fa-trash-can"></i></span>
-              Mengurangi Beban Tempat Pembuangan Akhir
-            </li>
-            <li class="list-icon">
-              <span class="icon"><i class="fa-solid fa-coins"></i></span>
-              Mendukung Ekonomi Sirkular
-            </li>
-            <li class="list-icon">
-              <span class="icon"><i class="fa-solid fa-leaf"></i></span>
-              Mempermudah Pengolahan Sampah Organik
-            </li>
-            <li class="list-icon">
-              <span class="icon"><i class="fa-solid fa-house"></i></span>
-              Membiasakan Gaya Hidup Ramah Lingkungan
-            </li>
-          </ul>
-        </div>
-      </section>
+      <section class="third-section" id="popup-container"></section>
     `;
   }
+
   async afterRender() {
-    console.log('afterRender Halaman Utama dipanggil!');
+    const uploadButton = document.getElementById('upload-button');
+    const popupContainer = document.getElementById('popup-container');
+
+    if (uploadButton && popupContainer) {
+      uploadButton.addEventListener('click', () => {
+        // Sisipkan popup jika belum ada
+        if (!document.getElementById('uploadPopup')) {
+          popupContainer.innerHTML = generatePopupImage();
+        }
+
+        // Seleksi ulang setelah popup muncul di DOM
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('fileInput');
+        const closeBtn = document.querySelector('.close-btn');
+        const cancelBtn = document.querySelector('.cancel-btn');
+        const checkImage = document.querySelector('.primary-btn');
+
+        // Tutup popup
+        const closePopup = () => {
+          const popup = document.getElementById('uploadPopup');
+          if (popup) popup.remove();
+        };
+
+        if (closeBtn) closeBtn.addEventListener('click', closePopup);
+        if (cancelBtn) cancelBtn.addEventListener('click', closePopup);
+
+        // membuka file input
+        if (dropArea && fileInput) {
+          dropArea.addEventListener('click', () => {
+            fileInput.click();
+          });
+
+          // Preview gambar saat file dipilih
+          fileInput.addEventListener('change', () => {
+            const file = fileInput.files[0];
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+                dropArea.innerHTML = `<img src="${e.target.result}" alt="Preview" style="max-width: 100%; height: auto;" />`;
+              };
+              reader.readAsDataURL(file);
+            }
+          });
+        }
+      });
+    }
   }
 }

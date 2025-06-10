@@ -1136,6 +1136,9 @@ body.modal-open {
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
   border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .news-card:hover {
@@ -1147,7 +1150,13 @@ body.modal-open {
   width: 100%;
   height: 200px;
   overflow: hidden;
-  position: relative;
+}
+
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .placeholder-image {
@@ -1171,39 +1180,37 @@ body.modal-open {
 }
 
 .news-content {
-  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0px 24px 24px 24px;
+  height: 200px;
+  justify-content: space-between; 
 }
 
-.news-category {
-  display: inline-block;
-  background-color: #e8f5e8;
-  color: #4a9960;
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.news-title {
+.news-title { 
   font-size: 1.25rem;
   font-weight: 700;
   color: #2C4F34;
-  margin-bottom: 12px;
+  margin-bottom: 1px;
   line-height: 1.4;
+  height: 3.0em; 
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
 
 .news-excerpt {
   color: #666;
   font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 20px;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  height: 3.2em; 
 }
 
 .read-more-btn {
@@ -1218,6 +1225,8 @@ body.modal-open {
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .read-more-btn:hover {

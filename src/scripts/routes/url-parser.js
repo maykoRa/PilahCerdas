@@ -1,9 +1,9 @@
 function extractPathnameSegments(path) {
-  const splitUrl = path.split('/');
+  const splitUrl = path.split('/').filter(segment => segment !== '');
 
   return {
-    resource: splitUrl[1] || null,
-    id: splitUrl[2] || null,
+    resource: splitUrl[0] || null,
+    id: splitUrl[1] || null,       
   };
 }
 
@@ -15,7 +15,11 @@ function constructRouteFromSegments(pathSegments) {
   }
 
   if (pathSegments.id) {
-    pathname = pathname.concat('/:id');
+    if (pathSegments.resource === 'news-detail') {
+      pathname = pathname.concat('/:id');
+    } else {
+      pathname = pathname.concat(`/${pathSegments.id}`);
+    }
   }
 
   return pathname || '/';
@@ -28,7 +32,8 @@ export function getActivePathname() {
 export function getActiveRoute() {
   const pathname = getActivePathname();
   const urlSegments = extractPathnameSegments(pathname);
-  return constructRouteFromSegments(urlSegments);
+  const routeKey = constructRouteFromSegments(urlSegments);
+  return routeKey;
 }
 
 export function parseActivePathname() {

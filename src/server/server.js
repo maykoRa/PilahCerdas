@@ -3,6 +3,7 @@ const Inert = require("@hapi/inert");
 const routes = require("./routes/news-routes");
 const sequelize = require("./config/database");
 const NewsModel = require("./models/news");
+const path = require("path");
 
 const init = async () => {
   const server = Hapi.server({
@@ -17,12 +18,15 @@ const init = async () => {
 
   await server.register(Inert);
 
+  const resolvedStaticPath = path.join(__dirname, "../public");
+  console.log("Hapi.js serving static files from (FINAL CORRECTED PATH):", resolvedStaticPath);
+
   server.route({
     method: "GET",
     path: "/public/{param*}",
     handler: {
       directory: {
-        path: "./public",
+        path: resolvedStaticPath,
         listing: false,
         index: false,
       },

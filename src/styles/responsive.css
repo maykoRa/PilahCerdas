@@ -1,0 +1,33 @@
+@media (max-width: 729px) {
+  html {
+    font-size: 5px; 
+  }
+  .first-section {
+    height: auto; 
+    padding-top: 2vh; 
+    padding-bottom: 120px;
+  }
+
+}
+@media (min-width: 730px) {
+  html {
+    font-size: 13px; 
+  }
+  .first-section {
+    height: auto; 
+    padding-top: 3vh;
+    padding-bottom: 250px;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px; 
+  }
+    .first-section {
+    height: auto; 
+    padding-top: 0vh;
+    padding-bottom: 350px;
+  }
+}

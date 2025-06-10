@@ -1337,6 +1337,11 @@ body.modal-open {
   padding: 0 8px;
 }
 
+/* New Lines */
+.preserve-newlines {
+  white-space: pre-wrap;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .news-hero-container {

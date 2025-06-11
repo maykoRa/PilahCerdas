@@ -1,7 +1,7 @@
 import { getActiveRoute } from "../routes/url-parser";
-import { generateMainNavigationListTemplate } from "../template";
+import { generateMainNavigationListTemplate } from "../template"; // Pastikan path ini benar
 import { setupSkipToContent, transitionHelper } from "../utils";
-import routes from "../routes/routes";
+import routes from "../routes/routes"; // Pastikan path ini benar
 
 export default class App {
   #content;
@@ -15,29 +15,36 @@ export default class App {
     this.#drawerButton = drawerButton;
     this.#drawerNavigation = drawerNavigation;
     this.#skipLinkButton = skipLinkButton;
-    this.#header = document.querySelector("header");
+    this.#header = document.querySelector("header"); // Inisialisasi header di sini
 
     this.#init();
   }
+
   #init() {
     setupSkipToContent(this.#skipLinkButton, this.#content);
     this.#setupDrawer();
+    // Panggil #setupNavigationList di sini. Ini akan memastikan
+    // konten navigasi selalu diinisialisasi saat aplikasi dimuat.
+    this.#setupNavigationList();
   }
+
   #setupDrawer() {
+    // Event listener untuk tombol drawer (membuka/menutup navigasi)
     this.#drawerButton.addEventListener("click", () => {
       this.#drawerNavigation.classList.toggle("open");
     });
 
+    // Event listener untuk menutup drawer saat mengklik di luar drawer atau tombolnya
     document.body.addEventListener("click", (event) => {
-      const isTargetInsideDrawer = this.#drawerNavigation.contains(
-        event.target
-      );
+      const isTargetInsideDrawer = this.#drawerNavigation.contains(event.target);
       const isTargetInsideButton = this.#drawerButton.contains(event.target);
 
+      // Jika target klik bukan bagian dari drawer atau tombolnya, tutup drawer
       if (!(isTargetInsideDrawer || isTargetInsideButton)) {
         this.#drawerNavigation.classList.remove("open");
       }
 
+      // Tutup drawer jika salah satu link di dalam drawer diklik
       this.#drawerNavigation.querySelectorAll("a").forEach((link) => {
         if (link.contains(event.target)) {
           this.#drawerNavigation.classList.remove("open");
@@ -45,9 +52,16 @@ export default class App {
       });
     });
   }
+
   #setupNavigationList() {
-    const navListMain =
-      this.#drawerNavigation.children.namedItem("navlist-main");
+    const navListMain = this.#drawerNavigation.children.namedItem("navlist-main");
+
+    // Pastikan elemen navlist-main ditemukan sebelum mencoba mengubah innerHTML
+    if (!navListMain) {
+      console.error('Error: Navigation list main element (navlist-main) not found in the DOM.');
+      return;
+    }
+    // Isi konten navigasi utama menggunakan template yang digenerate
     navListMain.innerHTML = generateMainNavigationListTemplate();
   }
   async renderPage() {

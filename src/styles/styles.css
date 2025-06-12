@@ -274,6 +274,7 @@ h1 h2 {
   padding: 0.125rem;
   display: inline-block;
   max-width: fit-content;
+  padding:0.3rem;
 }
 
 .upload-button:hover {
@@ -287,114 +288,7 @@ h1 h2 {
   /* Ensures the icon is vertically centered */
 }
 
-/* Overlay latar belakang */
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(0.313rem);
-  -webkit-backdrop-filter: blur(0.313rem);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.popup-content {
-  background: white;
-  padding: 1.25rem 1.875rem;
-  border-radius: 0.75rem;
-  max-width: 25rem;
-  width: 90%;
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-.popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.625rem;
-}
-
-.popup-header h3 {
-  margin: 0;
-  font-size: 1.25rem;
-  color: #2D4E34;
-}
-
-.close-btn {
-  font-size: 1.5;
-  cursor: pointer;
-  color: #666;
-}
-
-.close-btn:hover {
-  color: red;
-}
-
-/* Area unggah */
-.drop-area {
-  border: 0.125rem dashed #ccc;
-  border-radius: 0.5rem;
-  padding: 2.5rem 1.25rem;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.drop-area:hover {
-  background-color: #f9f9f9;
-}
-
-.drop-area i {
-  font-size: 2.5rem;
-  color: #2D4E34;
-  margin-bottom: 0.625rem;
-}
-
-.drop-area p {
-  margin: 0.625rem 0 0;
-  font-size: 0.875rem;
-  color: #2D4E34;
-}
-
-.popup-footer {
-  margin-top: 1.25rem;
-  display: flex;
-  justify-content: space-between;
-}
-
-.popup-footer .btn {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.375rem;
-  cursor: pointer;
-  font-size: 0.875rem;
-  transition: background-color 0.2s;
-}
-
-.cancel-btn {
-  background-color: #2D4E34;
-  color: white;
-  border-color: #2D4E34;
-}
-
-.cancel-btn:hover {
-  background-color: #2cc548;
-}
-
-.primary-btn {
-  background-color: #2D4E34;
-  color: white;
-}
-
-.primary-btn:hover {
-  background-color: #2cc548;
-}
 
 /*fouth section*/
 .fourth-section {
@@ -2575,312 +2469,463 @@ html {
 
 /* src/styles/styles.css */
 
-/* --- ML Upload Pop-up Overlay & Content --- */
-.ml-popup-overlay {
-  display: none; /* Default: hidden */
+/* --- ML Upload Pop-up Overlay & Content (Unified Styling) --- */
+.ml-popup-overlay,
+.ml-result-overlay {
+  display: none;
   position: fixed;
-  z-index: 1000;
+  z-index: 10000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(0.313rem); /* 5px */
+  -webkit-backdrop-filter: blur(0.313rem); /* 5px */
+  display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1.25rem; /* 20px */
+  box-sizing: border-box;
 }
 
-.ml-popup-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 25px;
-  border: 1px solid #888;
+.ml-popup-content,
+.ml-result-content {
+  background-color: #ffffff;
+  padding: 1.875rem; /* 30px */
+  border-radius: 0.75rem; /* 12px */
   width: 90%;
-  max-width: 550px;
-  border-radius: 10px;
+  max-width: 36.25rem; /* 580px */
   position: relative;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 0.5rem 1.563rem rgba(0, 0, 0, 0.2); /* 0 8px 25px */
   animation-name: animatetop;
   animation-duration: 0.4s;
+  box-sizing: border-box;
+
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Animasi untuk modal */
 @keyframes animatetop {
-  from {top: -300px; opacity: 0}
-  to {top: 0; opacity: 1}
+  from {
+    top: -12.5rem; /* -200px */
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
-/* --- ML Upload Pop-up Header --- */
+/* --- ML Pop-up Header --- */
 .ml-popup-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+  margin-bottom: 1.563rem; /* 25px */
+  border-bottom: 0.063rem solid #e0e0e0; /* 1px */
+  padding-bottom: 0.938rem; /* 15px */
+  flex-shrink: 0;
 }
 
 .ml-popup-header h3 {
   margin: 0;
-  color: #333;
+  color: #2D4E34;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
-.ml-upload-close-btn {
-  color: #aaa;
-  font-size: 30px;
+.ml-upload-close-btn,
+.ml-result-close-btn {
+  color: #888;
+  font-size: 2rem; /* 32px */
   font-weight: bold;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 0.5rem 0.75rem; /* 8px 12px */
   border-radius: 50%;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: absolute;
+  top: 0.938rem; /* 15px */
+  right: 0.938rem; /* 15px */
+  z-index: 10;
 }
 
-.ml-upload-close-btn:hover, .ml-upload-close-btn:focus {
-  color: #000;
-  background-color: #f2f2f2;
+.ml-upload-close-btn:hover,
+.ml-upload-close-btn:focus,
+.ml-result-close-btn:hover,
+.ml-result-close-btn:focus {
+  color: #333;
+  background-color: #f0f0f0;
+  outline: 0.125rem solid #5B7659; /* 2px */
+  outline-offset: 0.125rem; /* 2px */
 }
 
 /* --- ML Upload Pop-up Body (Upload Form) --- */
 .ml-popup-body {
-  margin-bottom: 20px;
+  margin-bottom: 1.563rem; /* 25px */
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 .ml-drop-area {
-  border: 2px dashed #ccc;
-  border-radius: 8px;
-  padding: 30px;
+  border: 0.125rem dashed #D0D9C8; /* 2px */
+  border-radius: 0.625rem; /* 10px */
+  padding: 2.5rem; /* 40px */
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.3s ease;
-  color: #666;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  color: #5B7659;
+  background-color: #F6FCEA;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 9.375rem; /* 150px */
 }
 
-.ml-drop-area:hover, .ml-drop-area.drag-over {
-  border-color: #007bff;
-  color: #007bff;
+.ml-drop-area:hover,
+.ml-drop-area.drag-over {
+  border-color: #4CAF50;
+  background-color: #e6fae6;
+  color: #2D4E34;
 }
 
 .ml-drop-area i {
-  font-size: 48px;
-  margin-bottom: 10px;
+  font-size: 3.5rem; /* 56px */
+  margin-bottom: 0.938rem; /* 15px */
+  color: #2D4E34;
 }
 
 .ml-drop-area p {
   margin: 0;
-  font-size: 16px;
+  font-size: 1.125rem; /* 18px */
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 /* Image preview in upload modal */
 #mlImagePreviewContainer {
-    display: none; /* Hidden by default, shown by JS */
-    border: 1px solid #eee;
-    padding: 10px;
-    margin-top: 15px;
-    border-radius: 8px;
-    max-height: 200px;
-    overflow: hidden;
-    background-color: #fafafa;
+  display: none;
+  border: 0.063rem solid #e0e0e0; /* 1px */
+  padding: 0.938rem; /* 15px */
+  margin-top: 1.25rem; /* 20px */
+  border-radius: 0.625rem; /* 10px */
+  max-height: 15.625rem; /* 250px */
+  overflow: hidden;
+  background-color: #fcfcfc;
+  box-shadow: inset 0 0.063rem 0.188rem rgba(0, 0, 0, 0.05); /* 0 1px 3px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 #mlImagePreview {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.5rem; /* 8px */
+  object-fit: contain;
 }
 
 /* Loading indicator for ML prediction */
 #mlLoadingIndicator {
-    margin-top: 20px;
-    text-align: center;
-    font-style: italic;
-    color: #555;
-    /* Optional: positioning relative to ml-popup-content if needed */
-    /* position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); */
-    /* background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
-    /* z-index: 1001; */
+  margin-top: 1.875rem; /* 30px */
+  text-align: center;
+  font-style: italic;
+  color: #5B7659;
+  font-size: 1.1em; /* tetap em untuk ini karena terkait ukuran font relatif */
 }
-
 
 /* --- ML Upload Pop-up Footer --- */
 .ml-popup-footer {
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  padding-top: 15px;
-  border-top: 1px solid #eee;
+  justify-content: center; /* Menengahkan kedua tombol */
+  gap: 0.938rem; /* 15px */
+  padding-top: 1.25rem; /* 20px */
+  border-top: 0.063rem solid #e0e0e0; /* 1px */
+  flex-shrink: 0;
 }
 
 .ml-btn {
-  padding: 10px 20px;
+  padding: 0.75rem 1.563rem; /* 12px 25px */
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5rem; /* 8px */
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 1.063rem; /* 17px */
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  flex-grow: 1; /* Agar kedua tombol melebar merata */
+  text-align: center; /* Untuk menengahkan teks di dalam tombol yang melebar */
+}
+
+.ml-btn:focus {
+    outline: 0.125rem solid #5B7659; /* 2px */
+    outline-offset: 0.125rem; /* 2px */
 }
 
 .ml-cancel-btn {
-  background-color: #f44336;
+  background-color: #dc3545;
   color: white;
 }
+
 .ml-cancel-btn:hover {
-  background-color: #d32f2f;
+  background-color: #c82333;
+  transform: translateY(-0.125rem); /* -2px */
+  box-shadow: 0 0.25rem 0.625rem rgba(220, 53, 69, 0.2); /* 0 4px 10px */
 }
 
 .ml-primary-btn {
-  background-color: #007bff;
+  background-color: #2D4E34;
   color: white;
 }
+
 .ml-primary-btn:hover {
-  background-color: #0056b3;
+  background-color: #3F6F4C;
+  transform: translateY(-0.125rem); /* -2px */
+  box-shadow: 0 0.25rem 0.625rem rgba(45, 78, 52, 0.2); /* 0 4px 10px */
 }
+
 .ml-primary-btn:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
-
 
 /* --- ML Result Pop-up Specific Styles --- */
-.ml-result-overlay {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
-}
-
-.ml-result-content { /* Ini konten di dalam result-popup */
-    background-color: #fefefe;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    max-width: 550px;
-    width: 90%;
-    position: relative;
-    animation-name: animatetop; /* Reuse animation */
-    animation-duration: 0.4s;
+.ml-result-content {
+  text-align: left;
 }
 
 .ml-popup-title {
-  margin: 0 0 20px 0;
-  color: #333;
+  color: #2D4E34;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.563rem; /* 25px */
   text-align: center;
-}
-
-.ml-result-close-btn {
-  color: #aaa;
-  font-size: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 5px 10px;
-  border-radius: 50%;
-  transition: background-color 0.2s;
-  position: absolute; /* Position relative to .ml-result-content */
-  top: 15px;
-  right: 15px;
-}
-
-.ml-result-close-btn:hover, .ml-result-close-btn:focus {
-  color: #000;
-  background-color: #f2f2f2;
+  flex-shrink: 0;
 }
 
 .ml-result-image {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  max-height: 15.625rem; /* 250px */
+  object-fit: contain;
+  border-radius: 0.625rem; /* 10px */
+  margin: 0 auto 1.563rem auto; /* 0 auto 25px auto */
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  border: 0.063rem solid #e0e0e0; /* 1px */
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1); /* 0 2px 8px */
+  flex-shrink: 0;
 }
 
 .ml-result-section {
   background-color: #f9f9f9;
-  border-left: 5px solid #007bff; /* Example color */
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 5px;
+  border-left: 0.375rem solid; /* 6px */
+  padding: 1.25rem; /* 20px */
+  margin-bottom: 1.25rem; /* 20px */
+  border-radius: 0.5rem; /* 8px */
+  transition: border-color 0.3s ease;
 }
-/* Adjust border-left color for specific waste types if desired */
-.ml-badge-organic + .ml-result-section { border-color: #28a745; } /* Green for organic */
-.ml-badge-inorganic + .ml-result-section { border-color: #ffc107; } /* Yellow for inorganic */
 
+/* Specific border-left colors for waste types */
+.ml-badge-organic + .ml-result-section {
+  border-color: #4CAF50;
+}
+.ml-badge-inorganic + .ml-result-section {
+  border-color: #F6BE00;
+}
 
 .ml-result-section p {
-  margin: 0 0 5px 0;
-  line-height: 1.5;
+  margin: 0 0 0.5rem 0; /* 0 0 8px 0 */
+  line-height: 1.6;
+  color: #333;
+  font-size: 1.05rem;
 }
 
 .ml-result-section p strong {
-  color: #333;
+  color: #2D4E34;
+  font-weight: 700;
 }
 
 .ml-badge {
   display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 0.313rem 0.625rem; /* 5px 10px */
+  border-radius: 0.375rem; /* 6px */
   font-weight: bold;
   color: white;
-  margin-left: 8px;
+  margin-left: 0.625rem; /* 10px */
+  font-size: 0.9em;
 }
 
 .ml-badge-organic {
-  background-color: #28a745; /* Green */
+  background-color: #4CAF50;
 }
 
 .ml-badge-inorganic {
-  background-color: #ffc107; /* Yellow */
+  background-color: #F6BE00;
   color: #333;
+}
+
+.ml-confidence-score {
+  font-weight: bold;
+  color: #2D4E34;
+  margin-left: 0.5rem; /* 8px */
+  font-size: 1.1em;
 }
 
 .ml-result-buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-top: 25px;
+  gap: 0.938rem; /* 15px */
+  margin-top: 1.875rem; /* 30px */
+  flex-shrink: 0;
 }
 
 .ml-btn-light {
-  background-color: #f8f9fa;
+  background-color: #f0f0f0;
   color: #333;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-  border-radius: 5px;
+  border: 0.063rem solid #ccc; /* 1px */
+  padding: 0.75rem 1.563rem; /* 12px 25px */
+  border-radius: 0.5rem; /* 8px */
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .ml-btn-light:hover {
   background-color: #e2e6ea;
+  border-color: #999;
+  transform: translateY(-0.125rem); /* -2px */
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* 0 4px 10px */
 }
 
 .ml-btn-dark {
-  background-color: #343a40;
+  background-color: #2D4E34;
   color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 0.75rem 1.563rem; /* 12px 25px */
+  border-radius: 0.5rem; /* 8px */
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .ml-btn-dark:hover {
-  background-color: #1d2124;
+  background-color: #3F6F4C;
+  transform: translateY(-0.125rem); /* -2px */
+  box-shadow: 0 0.25rem 0.625rem rgba(45, 78, 52, 0.2); /* 0 4px 10px */
 }
 
-.ml-confidence-score {
-    font-weight: bold;
-    color: #007bff; /* Warna biru, atau sesuaikan dengan tema Anda */
-    margin-left: 5px;
+/* Responsive adjustments */
+@media (max-width: 48em) { /* 768px */
+  .ml-popup-content,
+  .ml-result-content {
+    padding: 1.25rem; /* 20px */
+    max-width: 65%;
+    max-height: 95vh;
+  }
+
+  .ml-popup-header h3 {
+    font-size: 1.4rem;
+  }
+
+  .ml-upload-close-btn,
+  .ml-result-close-btn {
+    font-size: 1.75rem; /* 28px */
+    top: 0.625rem; /* 10px */
+    right: 0.625rem; /* 10px */
+  }
+
+  .ml-drop-area {
+    padding: 1.875rem; /* 30px */
+    min-height: 7.5rem; /* 120px */
+  }
+
+  .ml-drop-area i {
+    font-size: 2.5rem; /* 40px */
+  }
+
+  .ml-drop-area p {
+    font-size: 1rem; /* 16px */
+  }
+
+  .ml-btn {
+    padding: 0.625rem 1.25rem; /* 10px 20px */
+    font-size: 0.938rem; /* 15px */
+  }
+
+  .ml-popup-footer,
+  .ml-result-buttons {
+    gap: 0.625rem; /* 10px */
+    flex-direction: column;
+  }
+
+  .ml-btn-light,
+  .ml-btn-dark {
+    width: 100%;
+    text-align: center;
+  }
+
+  .ml-result-section {
+    padding: 0.938rem; /* 15px */
+  }
+
+  .ml-result-section p {
+    font-size: 1rem;
+  }
+
+  .ml-result-image {
+    max-height: 12.5rem; /* 200px */
+  }
 }
 
+@media (max-width: 30em) { /* 480px */
+  .ml-popup-overlay,
+  .ml-result-overlay {
+    padding: 0.625rem; /* 10px */
+  }
+
+  .ml-popup-content,
+  .ml-result-content {
+    padding: 0.938rem; 
+    max-height: 98vh;
+  }
+
+  .ml-popup-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .ml-drop-area {
+    padding: 1.25rem; /* 20px */
+    min-height: 6.25rem; /* 100px */
+  }
+
+  .ml-drop-area i {
+    font-size: 2rem; /* 32px */
+  }
+
+  .ml-drop-area p {
+    font-size: 0.875rem; /* 14px */
+  }
+
+  .ml-btn {
+    font-size: 0.875rem; /* 14px */
+    padding: 0.5rem 0.938rem; /* 8px 15px */
+  }
+
+  .ml-result-section {
+    padding: 0.625rem; /* 10px */
+  }
+
+  .ml-result-section p {
+    font-size: 0.95rem;
+  }
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {

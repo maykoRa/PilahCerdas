@@ -22,8 +22,8 @@ export function generatePopupImage() {
         </div>
         <div class="ml-popup-body">
           <div class="ml-drop-area" id="mlDropArea">
-            <i class="fa-solid fa-trash-can-arrow-up"></i>
-            <p>Drop foto sampahmu disini</p>
+            <i id="mlDropAreaIcon" class="fa-solid fa-trash-can-arrow-up"></i>
+            <p id="mlDropAreaText">Drop foto sampahmu disini</p>
             <input type="file" id="mlFileInput" accept="image/*" style="display: none;" />
             <div id="mlImagePreviewContainer" style="display: none; margin-top: 10px;">
               <img id="mlImagePreview" src="#" alt="Image Preview" style="max-width: 100%; max-height: 150px; display: block; margin: 0 auto;">
@@ -68,7 +68,7 @@ export function organicWaste(imageSrc, confidence) {
 
         <div class="ml-result-buttons">
           <button class="ml-btn-light" id="mlUploadAnotherImageBtn">Unggah Gambar Lain</button>
-          <button class="ml-btn-dark">Pelajari Lebih Lanjut</button>
+          <button class="ml-btn-dark" id="mlLearnMoreBtn">Pelajari Lebih Lanjut</button>
         </div>
       </div>
     </div>
@@ -101,7 +101,7 @@ export function inorganicWaste(imageSrc, confidence) {
 
         <div class="ml-result-buttons">
           <button class="ml-btn-light" id="mlUploadAnotherImageBtn">Unggah Gambar Lain</button>
-          <button class="ml-btn-dark">Pelajari Lebih Lanjut</button>
+          <button class="ml-btn-dark" id="mlLearnMoreBtn">Pelajari Lebih Lanjut</button>
         </div>
       </div>
     </div>

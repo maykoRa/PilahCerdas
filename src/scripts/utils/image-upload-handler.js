@@ -20,9 +20,20 @@ export const initImageUpload = ({
   const dropArea = document.getElementById(dropAreaId);
   const loadingIndicator = document.getElementById(loadingIndicatorId);
   const uploadCancelBtn = document.getElementById(uploadCancelBtnId);
+  const dropAreaIcon = document.getElementById('mlDropAreaIcon'); 
+  const dropAreaText = document.getElementById('mlDropAreaText'); 
+  
 
 
   let uploadedFile = null; // Untuk menyimpan objek File
+    const toggleDropAreaContent = (show) => { // PERUBAHAN DI SINI
+    if (dropAreaIcon) {
+      dropAreaIcon.style.display = show ? 'block' : 'none';
+    }
+    if (dropAreaText) {
+      dropAreaText.style.display = show ? 'block' : 'none';
+    }
+  };
 
   // Listener untuk input file
   if (fileInput) {
@@ -40,6 +51,7 @@ export const initImageUpload = ({
           if (imagePreviewContainer) {
             imagePreviewContainer.style.display = 'block';
           }
+          toggleDropAreaContent(false);
           onImageLoad(imgSrc); // Kirim base64 imageSrc ke HomePage
           if (predictButton) predictButton.disabled = false;
         };
@@ -54,6 +66,7 @@ export const initImageUpload = ({
         }
         uploadedFile = null;
         if (predictButton) predictButton.disabled = true;
+        toggleDropAreaContent(true); // Tampilkan ikon dan teks drop area
       }
     });
   }
@@ -134,6 +147,12 @@ export const initImageUpload = ({
         uploadedFile = null;
         if (predictButton) predictButton.disabled = true;
         if (loadingIndicator) loadingIndicator.style.display = 'none';
-    });
+        toggleDropAreaContent(true); 
+        const mlUploadModal = document.getElementById('mlUploadModal');
+        if (mlUploadModal) {
+            mlUploadModal.style.display = 'none';
+        }
+        
+      });
   }
 };

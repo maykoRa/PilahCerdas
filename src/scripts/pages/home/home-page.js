@@ -168,12 +168,23 @@ export default class HomePage {
   #attachResultPopupListeners() {
     const modal = document.getElementById('mlResultModal');
     const close = modal.querySelector('.ml-result-close-btn');
-    const another = document.getElementById('mlUploadAnotherImageBtn');
+    const uploadAnotherBtn = document.getElementById('mlUploadAnotherImageBtn'); 
+    const learnMoreBtn = document.getElementById('mlLearnMoreBtn');
 
     if (close) close.addEventListener('click', () => modal.remove());
-    if (another) another.addEventListener('click', () => {
+    if (uploadAnotherBtn) 
+      uploadAnotherBtn.addEventListener('click', () => {
       modal.remove();
-      document.getElementById('mlUploadModal').style.display = 'flex';
+      const uploadButton = document.getElementById('upload-button');
+        if (uploadButton) {
+          uploadButton.click();
+        }
     });
+    if (learnMoreBtn) { 
+      learnMoreBtn.addEventListener('click', () => {
+        modal.remove(); 
+        window.location.hash = '#/news'; 
+      });
+    }
   }
 }

@@ -1,4 +1,3 @@
-// src/scripts/pages/about/about-page.js
 export default class AboutPage {
   async render() {
     return `

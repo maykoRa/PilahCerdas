@@ -1,13 +1,16 @@
+import { initImageUpload } from '../../utils/image-upload-handler';
 import { generatePopupImage, organicWaste, inorganicWaste } from '../../template.js';
 
 export default class HomePage {
+  #currentImageSrc = null;
+
   async render() {
     return `
       <section class="first-section">
         <div class="first-content">
             <h1 id="title-first-section">Kenali Sampahmu, <span class="first-highlight">Mulai dari Sekarang!</span></h1>
             <div id="fisrt-content-text">
-              <p>Unggah foto sampah dan temukan jenis serta cara<br> penanganan terbaiknya.<br> Pilah jadi mudah dengan bantuan teknologi!</p>
+              <p>Unggah foto sampah dan temukan jenis serta cara<br> penanganan terbaiknya.<br>Pilah jadi mudah dengan bantuan teknologi!</p>
             </div>
         </div>
       </section>
@@ -28,7 +31,7 @@ export default class HomePage {
                 PilahCerdas <i class="fa-solid fa-arrow-up-from-bracket"></i>
             </button>
         </div>
-        <div class = "popup-container"id="popup-container"></div> 
+        <div class="popup-container" id="popup-container"></div> 
       </section>
 
       <section class="third-section">
@@ -39,56 +42,51 @@ export default class HomePage {
             </div>
         </div>
         <div class="section-content-third-section">
-        
           <div class="card-image-one">
             <div class="card-overlay">
               <h3>Masalah Sampah yang <br> <span class="third-highlight"> Terabaikan<span></h3>
               <p>Kurangnya kebiasaan memilah sampah menyebabkan limbah menumpuk di TPA dan mencemari lingkungan sekitar kita.</p>
             </div>
-          
-        </div>
-        
+          </div>
           <div class="card-image-two">
             <div class="card-overlay">
               <h3>Teknologi untuk Bantu <br><span class="third-highlight">Pilah Sampah<span></h3>
               <p>Dengan bantuan AI berbasis gambar, <span class="fourth-highlight">PilahCerdas</span> memudahkan siapapun mengenali jenis sampah dan cara membuangnya dengan benar.</p>
             </div>
-         
-        </div>
-        
+          </div>
           <div class="card-image-three">
-          <div class="card-overlay">
-            <h3>Kontribusi untuk <span class="third-highlight">Bumi<span></h3>
-            <p>Setiap gambar yang kamu unggah membantu menciptakan kebiasaan baik, mengurangi pencemaran, dan membantu budaya pilah sampah di Indonesia.</p>
+            <div class="card-overlay">
+              <h3>Kontribusi untuk <span class="third-highlight">Bumi<span></h3>
+              <p>Setiap gambar yang kamu unggah membantu menciptakan kebiasaan baik, mengurangi pencemaran, dan membantu budaya pilah sampah di Indonesia.</p>
+            </div>
           </div>
-          </div>
-      </div>
-  </section>
-  <section class="fourth-section">
-    <div class="fist-content-fourth-section">
-      <h2>Bersama PilahCerdas Membangun<br> Kebiasaan Baru Demi Lingkungan yang Lebih Baik</h2>
-      <p>Kami percaya bahwa memilah sampah bukan sekadar rutinitas, tapi langkah<br> nyata menuju masa depan yang lebih hijau dan berkelanjutan.
-    </div>
-    <div class="second-contents-fourth-section">
-        <div class="fourth-content-hero">
-          <h3>Mulai dari Rumah,<br> Berdampak untuk<br> Dunia</h3>
-          <p>Perubahan besar selalu dimulai dari hal kecil. Dengan fitur yang mudah digunakan, Pilah Cerdas mendorong masyarakat Indonesia memulai kebiasaan baik dari rumah masing-masing.</p>
-          </div>
-        <div class="fourth-image-hero">
-          <img src="images/gambar2.png" alt="Sampah Organik" class="card-image" />
         </div>
-    </div>
-    <div class="second-contents-fourth-section">
-      <div class="fourth-images-hero">
-        <img src="images/gambar1.png" alt="Sampah Organik" class="card-image" />
-      </div>
-      <div class="fourth-content-hero-right">
-        <h3>Teknologi untuk<br>Lingkungan</h3>
-        <p> PilahCerdas menggunakan kecerdasan buatan untuk membantu siapa pun mengenali jenis sampah hanya dengan mengunggah gambar. Dengan langkah kecil ini. kamu ikut berkontribusi <br>menjaga bumi</p>
-      </div>
-    </div>
+      </section>
 
-  </section>
+      <section class="fourth-section">
+        <div class="fist-content-fourth-section">
+          <h2>Bersama PilahCerdas Membangun<br> Kebiasaan Baru Demi Lingkungan yang Lebih Baik</h2>
+          <p>Kami percaya bahwa memilah sampah bukan sekadar rutinitas, tapi langkah<br> nyata menuju masa depan yang lebih hijau dan berkelanjutan.</p>
+        </div>
+        <div class="second-contents-fourth-section">
+            <div class="fourth-content-hero">
+              <h3>Mulai dari Rumah,<br> Berdampak untuk<br> Dunia</h3>
+              <p>Perubahan besar selalu dimulai dari hal kecil. Dengan fitur yang mudah digunakan, Pilah Cerdas mendorong masyarakat Indonesia memulai kebiasaan baik dari rumah masing-masing.</p>
+            </div>
+            <div class="fourth-image-hero">
+              <img src="images/gambar2.png" alt="Sampah Organik" class="card-image" />
+            </div>
+        </div>
+        <div class="second-contents-fourth-section">
+          <div class="fourth-images-hero">
+            <img src="images/gambar1.png" alt="Sampah Organik" class="card-image" />
+          </div>
+          <div class="fourth-content-hero-right">
+            <h3>Teknologi untuk<br>Lingkungan</h3>
+            <p>PilahCerdas menggunakan kecerdasan buatan untuk membantu siapa pun mengenali jenis sampah hanya dengan mengunggah gambar. Dengan langkah kecil ini. kamu ikut berkontribusi <br>menjaga bumi</p>
+          </div>
+        </div>
+      </section>
     `;
   }
 
@@ -98,46 +96,84 @@ export default class HomePage {
 
     if (uploadButton && popupContainer) {
       uploadButton.addEventListener('click', () => {
-        // Sisipkan popup jika belum ada
-        if (!document.getElementById('uploadPopup')) {
-          popupContainer.innerHTML = generatePopupImage();
-        }
+        popupContainer.innerHTML = generatePopupImage();
 
-        // Seleksi ulang setelah popup muncul di DOM
-        const dropArea = document.getElementById('drop-area');
-        const fileInput = document.getElementById('fileInput');
-        const closeBtn = document.querySelector('.close-btn');
-        const cancelBtn = document.querySelector('.cancel-btn');
-        const checkImage = document.querySelector('.primary-btn');
+        initImageUpload({
+          fileInputId: 'mlFileInput',
+          predictButtonId: 'mlPredictButton',
+          imagePreviewId: 'mlImagePreview',
+          dropAreaId: 'mlDropArea',
+          loadingIndicatorId: 'mlLoadingIndicator',
+          onPredictionStart: this.#handlePredictionStart.bind(this),
+          onPredictionComplete: this.#displayPredictionResult.bind(this),
+          onImageLoad: (imgSrc) => { this.#currentImageSrc = imgSrc; },
+          uploadCancelBtnId: 'mlUploadCancelBtn'
+        });
 
-        // Tutup popup
-        const closePopup = () => {
-          const popup = document.getElementById('uploadPopup');
-          if (popup) popup.remove();
-        };
-
-        if (closeBtn) closeBtn.addEventListener('click', closePopup);
-        if (cancelBtn) cancelBtn.addEventListener('click', closePopup);
-
-        // membuka file input
-        if (dropArea && fileInput) {
-          dropArea.addEventListener('click', () => {
-            fileInput.click();
-          });
-
-          // Preview gambar saat file dipilih
-          fileInput.addEventListener('change', () => {
-            const file = fileInput.files[0];
-            if (file) {
-              const reader = new FileReader();
-              reader.onload = function (e) {
-                dropArea.innerHTML = `<img src="${e.target.result}" alt="Preview" style="max-width: 100%; height: auto;" />`;
-              };
-              reader.readAsDataURL(file);
-            }
-          });
-        }
+        const modal = document.getElementById('mlUploadModal');
+        if (modal) modal.style.display = 'flex';
       });
     }
+
+    window.addEventListener('click', (event) => {
+      const modal = document.getElementById('mlUploadModal');
+      const resultModal = document.getElementById('mlResultModal');
+      if (event.target === modal) modal.style.display = 'none';
+      if (event.target === resultModal) resultModal.style.display = 'none';
+    });
+  }
+
+  #handlePredictionStart() {
+    const loader = document.getElementById('mlLoadingIndicator');
+    if (loader) loader.style.display = 'block';
+  }
+
+  #displayPredictionResult(result) {
+    const loader = document.getElementById('mlLoadingIndicator');
+    const uploadModal = document.getElementById('mlUploadModal');
+    const container = document.getElementById('popup-container');
+
+    if (loader) loader.style.display = 'none';
+    if (uploadModal) uploadModal.style.display = 'none';
+
+    const predicted = result.class_name;
+    const confidence = result.confidence;
+
+    if (predicted === 'Organik') {
+      container.innerHTML = organicWaste(this.#currentImageSrc, confidence);
+    } else if (predicted === 'Anorganik') {
+      container.innerHTML = inorganicWaste(this.#currentImageSrc, confidence);
+    } else {
+      container.innerHTML = `
+        <div id="mlResultModal" class="ml-result-overlay">
+          <div class="ml-result-content">
+            <h2 class="ml-popup-title">Identifikasi Gagal!</h2>
+            <span class="ml-result-close-btn">&times;</span>
+            <p>Terjadi kesalahan saat identifikasi atau jenis sampah tidak dikenali.</p>
+            <div class="ml-result-buttons">
+              <button class="ml-btn-light" id="mlUploadAnotherImageBtn">Unggah Gambar Lain</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    const resultModal = document.getElementById('mlResultModal');
+    if (resultModal) {
+      resultModal.style.display = 'flex';
+      this.#attachResultPopupListeners();
+    }
+  }
+
+  #attachResultPopupListeners() {
+    const modal = document.getElementById('mlResultModal');
+    const close = modal.querySelector('.ml-result-close-btn');
+    const another = document.getElementById('mlUploadAnotherImageBtn');
+
+    if (close) close.addEventListener('click', () => modal.remove());
+    if (another) another.addEventListener('click', () => {
+      modal.remove();
+      document.getElementById('mlUploadModal').style.display = 'flex';
+    });
   }
 }

@@ -166,7 +166,7 @@ export default class AdminDashboardPage {
     const fetchNewsById = async (newsId) => {
       const adminToken = localStorage.getItem("adminToken");
       try {
-        const response = await fetch(`http://localhost:9000/news/${newsId}`, {
+        const response = await fetch(`https://pilahcerdas-backend-production.up.railway.app/news/${newsId}`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${adminToken}`,
@@ -298,7 +298,7 @@ export default class AdminDashboardPage {
 
       try {
         const response = await fetch(
-          `http://localhost:9000/admin/news/${newsIdToDelete}`,
+          `https://pilahcerdas-backend-production.up.railway.app/admin/news/${newsIdToDelete}`,
           {
             method: "DELETE",
             headers: {
@@ -334,7 +334,7 @@ export default class AdminDashboardPage {
       const adminToken = localStorage.getItem("adminToken");
 
       try {
-        const response = await fetch("http://localhost:9000/news", {
+        const response = await fetch("https://pilahcerdas-backend-production.up.railway.app/news", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -532,7 +532,7 @@ export default class AdminDashboardPage {
       try {
         const adminToken = localStorage.getItem("adminToken");
         const response = await fetch(
-          "http://localhost:9000/admin/upload/image",
+          "https://pilahcerdas-backend-production.up.railway.app/admin/upload/image",
           {
             method: "POST",
             headers: {
@@ -583,11 +583,11 @@ export default class AdminDashboardPage {
 
       const adminToken = localStorage.getItem("adminToken");
       let method = "POST";
-      let url = "http://localhost:9000/admin/news";
+      let url = "https://pilahcerdas-backend-production.up.railway.app/admin/news";
 
       if (id) {
         method = "PUT";
-        url = `http://localhost:9000/admin/news/${id}`;
+        url = `https://pilahcerdas-backend-production.up.railway.app/admin/news/${id}`;
       }
 
       try {

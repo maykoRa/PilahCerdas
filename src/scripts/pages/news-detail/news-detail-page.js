@@ -92,7 +92,7 @@ export default class NewsDetailPage {
     newsReadTimeElement.textContent = 'Memuat...';
 
     try {
-      const response = await fetch(`http://localhost:9000/news/${newsId}`);
+      const response = await fetch(`https://pilahcerdas-backend-production.up.railway.app/news/${newsId}`);
       
       if (!response.ok) {
         if (response.status === 404) {

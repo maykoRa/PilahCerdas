@@ -9,13 +9,15 @@ export default class App {
   #drawerNavigation;
   #skipLinkButton;
   #header;
+  #footer;
 
   constructor({ content, drawerNavigation, drawerButton, skipLinkButton }) {
     this.#content = content;
     this.#drawerButton = drawerButton;
     this.#drawerNavigation = drawerNavigation;
     this.#skipLinkButton = skipLinkButton;
-    this.#header = document.querySelector("header"); // Inisialisasi header di sini
+    this.#header = document.querySelector("header");
+    this.#footer = document.querySelector("footer");  // Inisialisasi header di sini
 
     this.#init();
   }
@@ -80,9 +82,11 @@ export default class App {
     }
 
     if (url.startsWith("/admin")) {
-      this.#header.style.display = "none"; 
+      this.#header.style.display = "none";
+      this.#footer.style.display = "none"; 
     } else {
-      this.#header.style.display = ""; 
+      this.#header.style.display = "";
+      this.#footer.style.display = "";  
       this.#setupNavigationList();
     }
 

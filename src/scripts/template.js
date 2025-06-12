@@ -3,7 +3,7 @@ export function generateMainNavigationListTemplate() {
     <li><a id="home-page-button" class="home-page-button" href="#/">HOME</a></li>
     <li><a id="about-page-button" class="about-page-button"  href="#/about">ABOUT</a></li>
     <div class="brand-name">
-      <a class="brand-name__link" href="#/">
+      <a class="brand-name__link">
         <img class="brand-name__link__image" src="images/logo.png" alt="PilahCerdas Logo" />
       </a>
     </div>

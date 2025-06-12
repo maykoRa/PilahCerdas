@@ -2697,7 +2697,7 @@ html {
 
   /*julianda*/
   html {
-    font-size: 6px;
+    font-size: 5px;
   }
 
   .first-section {
@@ -2977,6 +2977,15 @@ html {
     gap: 32px;
   }
 }
+@media screen and (min-width: 540px) and (max-width: 599px) {
+  html {
+    font-size: 8px;
+  }
+  .first-section{
+  padding-bottom: 190px;
+  }
+}
+
 
 @media (max-width: 600px) {
   .footer-container {
@@ -3005,5 +3014,11 @@ html {
   }
   .footer-social {
     justify-content: center;
+  }
+
+}
+@media screen and (min-width: 1280px) and (max-width: 1281px){
+  .first-section{
+    padding-bottom:12px;
   }
 }

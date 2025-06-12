@@ -905,84 +905,7 @@ h1 h2 {
   transform: translateY(-0.125rem);
 }
 
-/* Responsive adjustments for Contact Page */
-@media (max-width: 1024px) {
-  .contact-title {
-    font-size: 2.8rem;
-  }
-  .contact-subtitle {
-    font-size: 1.2rem;
-  }
-  .section-heading {
-    font-size: 2rem;
-  }
-  .contact-detail-item h3 {
-    font-size: 1.3rem;
-  }
-  .contact-detail-item p {
-    font-size: 0.95rem;
-  }
-}
 
-@media (max-width: 768px) {
-  .contact-hero {
-    padding: 60px 0;
-  }
-  .contact-title {
-    font-size: 2.2rem;
-  }
-  .contact-subtitle {
-    font-size: 1rem;
-  }
-  .section-heading {
-    font-size: 1.8rem;
-  }
-  .contact-details-grid {
-    grid-template-columns: 1fr; /* Stack items vertically */
-    gap: 20px;
-  }
-  .contact-detail-item {
-    padding: 25px;
-  }
-  .contact-icon {
-    font-size: 2.5rem;
-  }
-  .contact-form {
-    padding: 20px;
-  }
-  .form-group label {
-    font-size: 1rem;
-  }
-  .form-group input,
-  .form-group textarea {
-    padding: 10px;
-  }
-  .submit-button {
-    padding: 12px 25px;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-hero {
-    padding: 40px 0;
-  }
-  .contact-title {
-    font-size: 1.8rem;
-  }
-  .contact-subtitle {
-    font-size: 0.9rem;
-  }
-  .section-heading {
-    font-size: 1.5rem;
-  }
-  .contact-detail-item h3 {
-    font-size: 1.2rem;
-  }
-  .contact-detail-item p {
-    font-size: 0.9rem;
-  }
-}
 /*about page*/
 /* About Page Specific Styles */
 
@@ -1148,38 +1071,6 @@ h1 h2 {
 }
 
 
-/* Responsive adjustments for About Page */
-@media (max-width: 1024px) {
-  .about-title {
-    font-size: 2.8rem;
-  }
-  .about-subtitle {
-    font-size: 1.2rem;
-  }
-  .section-heading {
-    font-size: 2rem;
-  }
-  .vision-section p,
-  .mission-section li,
-  .why-pilahcerdas-section p,
-  .team-section p {
-    font-size: 1.05rem;
-  }
-  /* Features grid adjust */
-  .features-grid {
-    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
-    gap: 1.25rem;
-  }
-  .feature-item {
-    padding: 1.563rem;
-  }
-  .feature-item h3 {
-    font-size: 1.3rem;
-  }
-  .feature-item p {
-    font-size: 0.95rem;
-  }
-}
 
 @media (max-width: 768px) {
   .about-hero {
@@ -2178,12 +2069,80 @@ body.modal-open {
   }
 
 
+.about-title {
+    font-size: 2.8rem;
+  }
+  .about-subtitle {
+    font-size: 1.2rem;
+  }
+  .section-heading {
+    font-size: 2rem;
+  }
+  .vision-section p,
+  .mission-section li,
+  .why-pilahcerdas-section p,
+  .team-section p {
+    font-size: 1.05rem;
+  }
+  /* Features grid adjust */
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+    gap: 1.25rem;
+  }
+  .feature-item {
+    padding: 1.563rem;
+  }
+  .feature-item h3 {
+    font-size: 1.3rem;
+  }
+  .feature-item p {
+    font-size: 0.95rem;
+  }
+  .contact-title {
+    font-size: 2.8rem;
+  }
+  .contact-subtitle {
+    font-size: 1.2rem;
+  }
+  .section-heading {
+    font-size: 2rem;
+  }
+  .contact-detail-item h3 {
+    font-size: 1.3rem;
+  }
+  .contact-detail-item p {
+    font-size: 0.95rem;
+  }
+}
 
+
+@media (max-width: 480px) {
+  .contact-hero {
+    padding: 0px 0;
+  }
+  .contact-title {
+    font-size: 1.8rem;
+  }
+  .contact-subtitle {
+    font-size: 0.9rem;
+  }
+  .section-heading {
+    font-size: 1.5rem;
+  }
+  .contact-detail-item h3 {
+    font-size: 1.2rem;
+  }
+  .contact-detail-item p {
+    font-size: 0.9rem;
+  }
 
 }
 
 
 @media (max-width: 768px) {
+  .form-group {
+  margin-bottom: 10px;
+}
   .news-hero-section {
     padding: 60px 0;
   }
@@ -2673,7 +2632,36 @@ html {
   .section-content-third-section {
     flex-wrap: nowrap;
   }
-
+  .contact-hero {
+    padding: 0px 0;
+  }
+  .contact-title {
+    font-size: 2.2rem;
+  }
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+  .section-heading {
+    font-size: 1.8rem;
+  }
+  
+  .contact-icon {
+    font-size: 2.5rem;
+  }
+  .contact-form {
+    padding: 20px;
+  }
+  .form-group label {
+    font-size: 1rem;
+  }
+  .form-group input,
+  .form-group textarea {
+    padding: 10px;
+  }
+  .submit-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
 
 }
 

@@ -70,21 +70,21 @@ export default class HomePage {
       <p>Kami percaya bahwa memilah sampah bukan sekadar rutinitas, tapi langkah<br> nyata menuju masa depan yang lebih hijau dan berkelanjutan.
     </div>
     <div class="second-contents-fourth-section">
-      <div class="card-fourth-section" >
-        <img src="images/Subtract.png" alt="Sampah Organik" class="card-image" />
-      </div>
-      <div class="content-fourth-section">
-        <h3>Mulai dari Rumah,<br> Berdampak untuk<br> Dunia</h3>
-        <p>Perubahan besar selalu dimulai dari hal kecil. Dengan<br> fitur yang mudah digunakan, Pilah Cerdas mendorong<br> masyarakat Indonesia memulai kebiasaan baik dari<br> rumah masing-masing.</p>
-      </div>
+        <div class="fourth-content-hero">
+          <h3>Mulai dari Rumah,<br> Berdampak untuk<br> Dunia</h3>
+          <p>Perubahan besar selalu dimulai dari hal kecil. Dengan fitur yang mudah digunakan, Pilah Cerdas mendorong masyarakat Indonesia memulai kebiasaan baik dari rumah masing-masing.</p>
+          </div>
+        <div class="fourth-image-hero">
+          <img src="images/gambar2.png" alt="Sampah Organik" class="card-image" />
+        </div>
     </div>
-    <div class="third-content-fourth-section">
-      <div class="card-fourths-section">
-        <img src="images/Subtract1.png" alt="Sampah Organik" class="card-image" />
+    <div class="second-contents-fourth-section">
+      <div class="fourth-images-hero">
+        <img src="images/gambar1.png" alt="Sampah Organik" class="card-image" />
       </div>
-      <div class="content-fourth-section-desk" >
+      <div class="fourth-content-hero-right">
         <h3>Teknologi untuk<br>Lingkungan</h3>
-        <p> PilahCerdas menggunakan kecerdasan buatan untuk<br> membantu siapa pun mengenali jenis sampah hanya<br> dengan mengunggah gambar. Dengan langkah kecil ini.<br> kamu ikut berkontribusi menjaga bumi</p>
+        <p> PilahCerdas menggunakan kecerdasan buatan untuk membantu siapa pun mengenali jenis sampah hanya dengan mengunggah gambar. Dengan langkah kecil ini. kamu ikut berkontribusi <br>menjaga bumi</p>
       </div>
     </div>
 

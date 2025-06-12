@@ -206,9 +206,9 @@ h1 h2 {
   justify-content: center;
   align-items: center;
   position: relative;
-  /* Tambahkan ini */
+  
   padding: 1.25rem;
-  /* Padding around the image */
+  
 }
 
 .right-section {
@@ -216,8 +216,7 @@ h1 h2 {
   flex-direction: column;
   padding: 1.25rem;
   position: relative;
-  /* Tambahkan ini */
-  margin-top: 3rem;
+ 
 }
 
 .image-wrapper img {
@@ -403,14 +402,11 @@ h1 h2 {
   margin-top: 5rem;
 }
 
-.second-contents-fourth-section>div {
-  position: absolute;
-}
 
-.third-contents-fourth-section>div {
-  position: absolute;
-}
 
+.fist-content-fourth-section{
+  margin-bottom:7rem;
+}
 .fist-content-fourth-section h2 {
   font-size: 2.7rem;
   color: #2D4E34;
@@ -426,22 +422,6 @@ h1 h2 {
   margin-top: 2rem;
 }
 
-.card-fourth-section {
-  margin-left: 35rem;
-  margin-top: 6.5rem;
-  z-index: 1;
-  position: relative;
-}
-
-.card-fourth-section img {
-  max-width: 90%;
-  height: auto;
-}
-
-.card-fourths-section img {
-  max-width: 100%;
-  height: auto;
-}
 
 .content-fourth-section {
   display: inline-block;
@@ -451,7 +431,7 @@ h1 h2 {
   padding: 1.25rem;
   z-index: 2;
   margin-bottom: 5rem;
-  margin-top: 19.5rem;
+  margin-top: 18.5rem;
   margin-left: 0.5rem;
 
 }
@@ -466,38 +446,79 @@ h1 h2 {
   font-size: 1.36rem;
   color: #265e2a;
 }
-
-.third-content-fourth-section>div {
-  position: absolute;
+.second-contents-fourth-section {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 4rem; 
+    margin-bottom: 5rem; 
+    
+  
+    margin-left: auto; 
+    margin-right: auto; 
+    padding: 0 1rem;  
 }
 
-.card-fourths-section {
-  margin-top: 50rem;
-  z-index: 3;
+
+.fourth-content-hero {
+    padding: 0; 
+    flex-shrink: 0; 
+    flex-basis: 45%; 
+   
+}
+.fourth-content-hero-right {
+    padding: 0; 
+    flex-shrink: 0;
+    flex-basis: 45%; 
+    text-align: left; 
 }
 
-.content-fourth-section-desk {
-  display: inline-block;
-  max-width: fit-content;
-  border-radius: 0.5rem;
-  background-color: #F6FCEA;
-  padding: 1.25rem;
-  z-index: 4;
-  margin-top: 62rem;
-  margin-left: 38rem;
 
+.fourth-content-hero h3,
+.fourth-content-hero-right h3 { 
+    font-size: 2.5rem; 
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #2C4F34; 
+    font-weight:600;
 }
 
-.content-fourth-section-desk h3 {
-  font-size: 2.1rem;
-  color: #2C4F34;
-  font-weight: 600;
+.fourth-content-hero p,
+.fourth-content-hero-right p { 
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: #5B7759; 
 }
 
-.content-fourth-section-desk p {
-  font-size: 1.2rem;
-  color: #2C4F34;
+
+.second-contents-fourth-section:first-of-type {
+    flex-direction: row-reverse; 
 }
+
+
+.fourth-image-hero img {
+    width: 100%; 
+    max-width: 28.125rem;
+    height: auto;
+    border-radius: 0.5rem;
+    flex-basis: 50%; 
+    object-fit: contain; 
+}
+
+
+
+
+.fourth-images-hero img { 
+    width: 100%; 
+    max-width: 30rem;
+    height: auto;
+    border-radius: 0.5rem;
+    flex-basis: 50%; 
+    object-fit: contain;
+}
+
+
+
 
 @keyframes fadeIn {
   from {
@@ -629,7 +650,7 @@ h1 h2 {
   align-items: center;
   overflow: hidden;
   /* Penting jika ada konten di dalamnya */
-  border-radius: 0.313rem;
+  border-radius: 0.6rem;
 }
 
 .card-image-two {
@@ -647,7 +668,7 @@ h1 h2 {
   justify-content: flex-end;
   align-items: center;
   overflow: hidden;
-  border-radius: 0.313rem;
+  border-radius: 0.6rem;
 }
 
 .card-image-three {
@@ -665,7 +686,7 @@ h1 h2 {
   justify-content: flex-end;
   align-items: center;
   overflow: hidden;
-  border-radius: 0.313rem;
+  border-radius: 0.6rem;
 }
 
 .card-text-overlay {
@@ -717,6 +738,249 @@ h1 h2 {
   margin-top: 0;
   font-size: 1rem;
 }
+/*about page*/
+/* About Page Specific Styles */
+
+.about-hero {
+  background-color: #2D4E34; /* Darker green, similar to some highlights */
+  color: #F6FCEA; /* Light text for contrast */
+  padding: 5rem 0;
+  text-align: center;
+  min-height: 25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0.25rem 0.938rem rgba(0, 0, 0, 0.1);
+}
+
+.about-hero-content {
+  max-width: 56.25rem; 
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.about-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.about-subtitle {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 43.75rem;
+  margin: 0 auto;
+}
+
+.about-section {
+  padding: 3.75rem 0;
+  background-color: #ffffff; /* Default background for sections */
+}
+
+.about-section.vision-mission-section {
+  background-color: #D0D9C8; /* Lighter green background */
+  padding: 5rem 0;
+}
+
+.about-section.why-pilahcerdas-section {
+  background-color: #F6FCEA; 
+  padding: 5rem 0;
+}
+
+.about-section.features-section { 
+  background-color: #ffffff;
+  padding: 5rem 0;
+}
+
+.about-section.team-section {
+  background-color: #f3fede; 
+  padding: 5rem 0;
+}
+
+.container {
+  max-width: 75rem; 
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  box-sizing: border-box;
+}
+
+.section-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2C4F34; /* Dark green for headings */
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.vision-section,
+.mission-section {
+  margin-bottom: 2.5rem;
+}
+
+.vision-section p,
+.why-pilahcerdas-section p,
+.team-section p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #5B7659; /* Slightly muted green for body text */
+  text-align: center;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.mission-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.938rem;
+  max-width: 43.75rem;
+  margin: 0 auto;
+}
+
+.mission-section li {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #2C4F34; 
+  position: relative;
+  padding-left: 1.875rem; 
+  text-align: left;
+}
+
+.mission-section li::before {
+  content: '✓'; 
+  color: #4CAF50; 
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* NEW: Features Section Styling */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr)); /* Responsive grid */
+  gap: 1.875rem;
+  margin-top: 2.5rem;
+}
+
+.feature-item {
+  background-color: #F6FCEA; /* Light background for feature cards */
+  padding: 1.875rem;
+  border-radius: 0.625rem;
+  text-align: center;
+  box-shadow: 0 0.313rem 0.938rem rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon {
+  font-size: 3rem; /* Size of the icon */
+  margin-bottom: 0.938rem;
+  color: #4CAF50; /* Green color for icons */
+}
+
+.feature-item h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  color: #2C4F34;
+  margin-bottom: 0.625rem;
+}
+
+.feature-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #5B7659;
+}
+
+
+/* Responsive adjustments for About Page */
+@media (max-width: 1024px) {
+  .about-title {
+    font-size: 2.8rem;
+  }
+  .about-subtitle {
+    font-size: 1.2rem;
+  }
+  .section-heading {
+    font-size: 2rem;
+  }
+  .vision-section p,
+  .mission-section li,
+  .why-pilahcerdas-section p,
+  .team-section p {
+    font-size: 1.05rem;
+  }
+  /* Features grid adjust */
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+    gap: 1.25rem;
+  }
+  .feature-item {
+    padding: 1.563rem;
+  }
+  .feature-item h3 {
+    font-size: 1.3rem;
+  }
+  .feature-item p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 60px 0;
+  }
+  .about-title {
+    font-size: 2.2rem;
+  }
+  .about-subtitle {
+    font-size: 1rem;
+  }
+  .section-heading {
+    font-size: 1.8rem;
+  }
+  .vision-section p,
+  .mission-section li,
+  .why-pilahcerdas-section p,
+  .team-section p {
+    font-size: 0.95rem;
+    padding: 0 10px; /* Add some horizontal padding */
+  }
+  .mission-section ul {
+    gap: 10px;
+  }
+  .mission-section li {
+    padding-left: 25px;
+  }
+  /* Features grid adjust */
+  .features-grid {
+    grid-template-columns: 1fr; /* Stack features vertically on smaller screens */
+    gap: 15px;
+  }
+  .feature-item {
+    padding: 20px;
+  }
+  .feature-item h3 {
+    font-size: 1.2rem;
+  }
+  .feature-item p {
+    font-size: 0.9rem;
+  }
+  .feature-icon {
+    font-size: 2.5rem;
+  }
+}
+
 
 /* login-page */
 .admin-login-section {
@@ -1669,33 +1933,8 @@ body.modal-open {
     height: 25.125rem;
   }
 
-  .card-fourths-section img {
-    max-width: 60%;
-  }
 
-  .card-fourth-section img {
-    max-width: 80%;
-  }
 
-  .card-fourth-section {
-    margin-left: 26rem;
-  }
-
-  .content-fourth-section {
-    margin-top: 15rem;
-  }
-
-  .content-fourth-section h3 {
-    font-size: 2rem;
-  }
-
-  .content-fourth-section p {
-    font-size: 1.1rem;
-  }
-
-  .content-fourth-section-desk {
-    margin-left: 30rem;
-  }
 
 }
 
@@ -2192,9 +2431,6 @@ html {
     flex-wrap: nowrap;
   }
 
-  .content-fourth-section-desk {
-    margin-left: 34rem;
-  }
 
 }
 
@@ -2239,29 +2475,8 @@ html {
     padding-bottom: 120px;
   }
 
-  .card-fourths-section img {
-    max-width: 60%;
-  }
 
-  .card-fourth-section img {
-    max-width: 95%;
-  }
 
-  .card-fourth-section {
-    margin-left: 27rem;
-  }
-
-  .content-fourth-section h3 {
-    font-size: 2.3rem;
-  }
-
-  .content-fourth-section p {
-    font-size: 1.3rem;
-  }
-
-  .content-fourth-section {
-    margin-top: 17rem;
-  }
 
   #logo {
     display: block;

@@ -2370,6 +2370,315 @@ html {
   color: #ccc;
 }
 
+/* src/styles/styles.css */
+
+/* --- ML Upload Pop-up Overlay & Content --- */
+.ml-popup-overlay {
+  display: none; /* Default: hidden */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.ml-popup-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 25px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 550px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Animasi untuk modal */
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
+/* --- ML Upload Pop-up Header --- */
+.ml-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.ml-popup-header h3 {
+  margin: 0;
+  color: #333;
+}
+
+.ml-upload-close-btn {
+  color: #aaa;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.ml-upload-close-btn:hover, .ml-upload-close-btn:focus {
+  color: #000;
+  background-color: #f2f2f2;
+}
+
+/* --- ML Upload Pop-up Body (Upload Form) --- */
+.ml-popup-body {
+  margin-bottom: 20px;
+}
+
+.ml-drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  color: #666;
+}
+
+.ml-drop-area:hover, .ml-drop-area.drag-over {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.ml-drop-area i {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.ml-drop-area p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Image preview in upload modal */
+#mlImagePreviewContainer {
+    display: none; /* Hidden by default, shown by JS */
+    border: 1px solid #eee;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 8px;
+    max-height: 200px;
+    overflow: hidden;
+    background-color: #fafafa;
+}
+#mlImagePreview {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+/* Loading indicator for ML prediction */
+#mlLoadingIndicator {
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+    color: #555;
+    /* Optional: positioning relative to ml-popup-content if needed */
+    /* position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); */
+    /* background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); */
+    /* z-index: 1001; */
+}
+
+
+/* --- ML Upload Pop-up Footer --- */
+.ml-popup-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.ml-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.ml-cancel-btn {
+  background-color: #f44336;
+  color: white;
+}
+.ml-cancel-btn:hover {
+  background-color: #d32f2f;
+}
+
+.ml-primary-btn {
+  background-color: #007bff;
+  color: white;
+}
+.ml-primary-btn:hover {
+  background-color: #0056b3;
+}
+.ml-primary-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+
+/* --- ML Result Pop-up Specific Styles --- */
+.ml-result-overlay {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.ml-result-content { /* Ini konten di dalam result-popup */
+    background-color: #fefefe;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    max-width: 550px;
+    width: 90%;
+    position: relative;
+    animation-name: animatetop; /* Reuse animation */
+    animation-duration: 0.4s;
+}
+
+.ml-popup-title {
+  margin: 0 0 20px 0;
+  color: #333;
+  text-align: center;
+}
+
+.ml-result-close-btn {
+  color: #aaa;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+  position: absolute; /* Position relative to .ml-result-content */
+  top: 15px;
+  right: 15px;
+}
+
+.ml-result-close-btn:hover, .ml-result-close-btn:focus {
+  color: #000;
+  background-color: #f2f2f2;
+}
+
+.ml-result-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ml-result-section {
+  background-color: #f9f9f9;
+  border-left: 5px solid #007bff; /* Example color */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+/* Adjust border-left color for specific waste types if desired */
+.ml-badge-organic + .ml-result-section { border-color: #28a745; } /* Green for organic */
+.ml-badge-inorganic + .ml-result-section { border-color: #ffc107; } /* Yellow for inorganic */
+
+
+.ml-result-section p {
+  margin: 0 0 5px 0;
+  line-height: 1.5;
+}
+
+.ml-result-section p strong {
+  color: #333;
+}
+
+.ml-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: white;
+  margin-left: 8px;
+}
+
+.ml-badge-organic {
+  background-color: #28a745; /* Green */
+}
+
+.ml-badge-inorganic {
+  background-color: #ffc107; /* Yellow */
+  color: #333;
+}
+
+.ml-result-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.ml-btn-light {
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ml-btn-light:hover {
+  background-color: #e2e6ea;
+}
+
+.ml-btn-dark {
+  background-color: #343a40;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ml-btn-dark:hover {
+  background-color: #1d2124;
+}
+
+.ml-confidence-score {
+    font-weight: bold;
+    color: #007bff; /* Warna biru, atau sesuaikan dengan tema Anda */
+    margin-left: 5px;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .news-detail-container {

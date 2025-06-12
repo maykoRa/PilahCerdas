@@ -546,6 +546,21 @@ h1 h2 {
   /* Penting jika ada konten di dalamnya */
   border-radius: 0.6rem;
 }
+.card-image-one:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.2);
+}
+.card-image-two:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.2);
+}
+.card-image-three:hover{
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.2);
+}
 
 .card-image-two {
   margin-top: 1.5rem;

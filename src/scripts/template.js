@@ -18,7 +18,6 @@ export function generatePopupImage() {
       <div class="ml-popup-content">
         <div class="ml-popup-header">
           <h3>Unggah Gambar Sampah di Sini</h3>
-          <span class="ml-upload-close-btn">&times;</span>
         </div>
         <div class="ml-popup-body">
           <div class="ml-drop-area" id="mlDropArea">

@@ -278,7 +278,10 @@ h1 h2 {
 }
 
 .upload-button:hover {
-  background-color: #365B36;
+  background-color: #64b464;
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.2);
   /* Darker green on hover */
 }
 

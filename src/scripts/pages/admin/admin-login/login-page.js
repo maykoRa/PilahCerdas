@@ -64,7 +64,7 @@ export default class AdminLoginPage {
       errorMessageElement.textContent = ""; 
 
       try {
-        const response = await fetch("http://localhost:9000/admin/login", {
+        const response = await fetch("https://pilahcerdas-backend-production.up.railway.app/admin/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

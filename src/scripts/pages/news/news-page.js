@@ -46,7 +46,7 @@ export default class NewsPage {
 
   async #fetchNews() {
     try {
-      const response = await fetch("http://localhost:9000/news");
+      const response = await fetch("https://pilahcerdas-backend-production.up.railway.app/news");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }

@@ -16,7 +16,7 @@ export default class NewsPage {
             <p class="news-hero-description">Ikuti perkembangan terkini seputar daur ulang, edukasi lingkungan, dan<br>teknologi cerdas untuk bumi yang lebih hijau.</p>
           </div>
          <div class="news-hero-image">
-     <img src="/images/icon.png" alt="Icon">
+     <img src="images/icon.png" alt="Icon">
         </div>
       </section>
 
